@@ -1,10 +1,10 @@
 {
   "name": "tidy-fin-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for the TidyFin app",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "npx tsc && node dist/index.js",
-    "compiler": "npx tsx",
+    "build": "tsc",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts"
   },
@@ -22,6 +22,7 @@
     "nodemon": "^3.1.4",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vercel": "^34.3.1"
   }
 }
