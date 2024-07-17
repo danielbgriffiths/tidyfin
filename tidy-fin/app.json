@@ -14,7 +14,12 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.danielbgriffiths.tidyfin"
+      "bundleIdentifier": "com.danielbgriffiths.tidyfin",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.385303574605-bsf6vp11d3ki7or4f9s3d049u3jm7vh8"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {

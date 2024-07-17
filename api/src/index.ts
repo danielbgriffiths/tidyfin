@@ -1,15 +1,14 @@
-import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+require("dotenv").config();
 
-dotenv.config();
+import { pool } from "./database/pool";
+import { createDatabaseIfNotExists } from "./database/create-database-if-not-exists";
+import { seedDatabaseIfEmpty } from "./database/seed-database-if-empty";
+import { createExpressApplication } from "./app";
 
-const app: Express = express();
-const port = process.env.PORT || 3000;
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
-});
-
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+pool
+  .connect()
+  .then(createDatabaseIfNotExists)
+  .then(seedDatabaseIfEmpty)
+  .then((client) => client.release())
+  .then(createExpressApplication)
+  .catch(console.error);
